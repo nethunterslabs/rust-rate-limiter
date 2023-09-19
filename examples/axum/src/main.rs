@@ -6,14 +6,11 @@ use std::{
 use axum::{
     extract::ConnectInfo, http::StatusCode, response::IntoResponse, routing::get, Extension, Router,
 };
-use clock::UnixEpochMillisecondsClock;
-use error::Result;
-use rate_limiter::{RateLimiter, RequestKey, RequestProcessingResponse};
 use tracing::info;
 
-mod clock;
-mod error;
-mod rate_limiter;
+use rate_limit::clock::UnixEpochMillisecondsClock;
+use rate_limit::error::Result;
+use rate_limit::{RateLimiter, RequestKey, RequestProcessingResponse};
 
 type RateLimiterOfUnixEpochMsClock = RateLimiter<UnixEpochMillisecondsClock>;
 

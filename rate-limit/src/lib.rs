@@ -3,7 +3,10 @@ use std::{
     sync::{Arc, Mutex},
 };
 
-use crate::{
+pub mod clock;
+pub mod error;
+
+pub use crate::{
     clock::{Clock, Ticks},
     error::RateLimiterError,
 };
@@ -113,7 +116,7 @@ mod tests {
 
     use crate::{
         clock::{FixedClock, Ticks},
-        rate_limiter::{RateLimiter, RequestKey, RequestProcessingResponse},
+        {RateLimiter, RequestKey, RequestProcessingResponse},
     };
 
     #[test]

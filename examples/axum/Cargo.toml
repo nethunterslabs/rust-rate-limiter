@@ -1,0 +1,17 @@
+[package]
+name = "rate-limit-axum-example"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "rate-limit-axum-example"
+path = "src/main.rs"
+bench = false
+
+[dependencies]
+rate-limit = { path = "../../rate-limit" }
+
+axum = "0.5"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"

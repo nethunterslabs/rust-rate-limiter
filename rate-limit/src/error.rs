@@ -1,5 +1,6 @@
 use std::sync::PoisonError;
 
+#[cfg(feature = "axum")]
 use axum::{http::StatusCode, response::IntoResponse, Json};
 use serde::Serialize;
 use thiserror::Error;
@@ -23,6 +24,7 @@ struct Message {
     message: String,
 }
 
+#[cfg(feature = "axum")]
 impl IntoResponse for RateLimiterError {
     fn into_response(self) -> axum::response::Response {
         let status_code = match self {
